@@ -13,20 +13,24 @@ function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <Router>
-        <div className="min-h-screen flex flex-col">
-          <Header />
-          <main className="flex-grow container mx-auto px-4 py-8">
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/fractions" element={<FractionsPage />} />
-              <Route path="/fractions/fractions-calculator" element={<FractionsCalculatorPage />} />
-              <Route path="/fractions/adding-and-subtracting-fractions" element={<AddingSubtractingFractionsPage />} />
-              <Route path="/fractions/mixed-numbers-calculator" element={<MixedNumbersCalculatorPage />} />
-              <Route path="/embed/fractions-calculator" element={<EmbeddableFractionsCalculator />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
+        <Routes>
+          <Route path="/embed/fractions-calculator" element={<EmbeddableFractionsCalculator />} />
+          <Route path="*" element={
+            <div className="min-h-screen flex flex-col">
+              <Header />
+              <main className="flex-grow container mx-auto px-4 py-8">
+                <Routes>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/fractions" element={<FractionsPage />} />
+                  <Route path="/fractions/fractions-calculator" element={<FractionsCalculatorPage />} />
+                  <Route path="/fractions/adding-and-subtracting-fractions" element={<AddingSubtractingFractionsPage />} />
+                  <Route path="/fractions/mixed-numbers-calculator" element={<MixedNumbersCalculatorPage />} />
+                </Routes>
+              </main>
+              <Footer />
+            </div>
+          } />
+        </Routes>
       </Router>
     </ThemeProvider>
   )

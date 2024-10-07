@@ -1,11 +1,14 @@
 import React from 'react';
 import { FractionsCalculator } from "@/components/FractionsCalculator";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export function EmbeddableFractionsCalculator() {
   return (
-    <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Fractions Calculator</h2>
-      <FractionsCalculator />
-    </div>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <div className="p-4 bg-background text-foreground">
+         
+        <FractionsCalculator />
+      </div>
+    </ThemeProvider>
   );
 }
